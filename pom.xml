@@ -3,7 +3,7 @@
 
   <groupId>org.rjung.util</groupId>
   <artifactId>gravatar</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.2</version>
   <packaging>jar</packaging>
 
   <name>gravatar</name>
@@ -94,6 +94,7 @@
           <goals>deploy</goals>
         </configuration>
       </plugin>
+<!--
       <plugin>
         <groupId>org.sonatype.plugins</groupId>
         <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -105,6 +106,7 @@
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
       </plugin>
+-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
@@ -141,6 +143,7 @@
       </plugin>
     </plugins>
   </build>
+
 
   <reporting>
     <plugins>
@@ -180,9 +183,15 @@
   </reporting>
 
   <distributionManagement>
-    <snapshotRepository>
+<!--    <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
+-->
+    <repository>
+      <id>${distribution.id}</id>
+        <name>${distribution.name}</name>
+        <url>${distribution.url}</url>
+    </repository>
   </distributionManagement>
 </project>
